@@ -1,0 +1,100 @@
+html,
+body {
+	font-family: sans-serif;
+	display: flex;
+	height: 100vh;
+	background-color: #333;
+	justify-content: center;
+	align-items: center;
+}
+
+.card {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 350px;
+	height: 480px;
+	cursor: pointer;
+	transform: translate(-50%, -50%);
+}
+
+.card .postion {
+	position: absolute;
+	overflow: hidden;
+	width: 100%;
+	height: 100%;
+	transition: transform .6s linear;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+
+.card .front {
+	transform: perspective(600px) rotateY(0deg);
+}
+
+.card .front img {
+	height: 100%;
+}
+
+.card .back {
+	display: flex;
+	flex-direction: column;
+	transform: perspective(600px) rotateY(180deg);
+	background-color: white;
+	align-items: center;
+	justify-content: center;
+}
+
+.card .back .avatar {
+	overflow: hidden;
+	width: 150px;
+	height: 150px;
+	margin-bottom: 20px;
+	border-radius: 50%;
+}
+
+.card .back .avatar img {
+	width: 100%;
+	height: 100%;
+}
+
+.card .back .avatar img:hover {
+	transform: scale(1.2);
+}
+
+.card .back-content {
+	font-size: 24px;
+	width: 100%;
+	text-align: center;
+	color: #333;
+}
+
+.card .back-content .item-socialMedia {
+	margin: 20px 0;
+}
+
+.card .back-content .item-socialMedia a {
+	font-size: 18px;
+	display: inline-flex;
+	width: 40px;
+	height: 40px;
+	transition: .4s;
+	color: #333;
+	border-radius: 50%;
+	justify-content: center;
+	align-items: center;
+}
+
+.card .back-content .item-socialMedia a:hover {
+	color: white;
+	background-color: #999;
+}
+
+.card:hover > .front {
+	transform: perspective(600px) rotateY(-180deg);
+}
+
+.card:hover > .back {
+	transform: perspective(600px) rotateY(0deg);
+}
+
